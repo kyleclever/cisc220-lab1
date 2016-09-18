@@ -28,6 +28,12 @@ bool isOrder(int *a, int *b, int *c);
 void swap(int &num1, int &num2);
 bool is_perfect_num (int test_num);
 bool isOrderRefer(int &a, int &b, int &c);
+void fillArray(int size);
+void printArray(int array[], int size);
+void reverseArray(int array[], int size);
+int minOfArray(int *array,int size);
+int sumOfArray(int *array, int size, int x);
+int sortArray(int *array,int size);
 
 int main() {
 /*
@@ -99,8 +105,31 @@ int main() {
 			cout<<x1<<" "<<y2<<" "<<z3<<endl;
 		}
 
+	//Problem 6
+	cout << "Problem 6: "<<endl;
+	int k = rand() % 30 +20;   // random number 20-50
+	fillArray(k);
 
+	//int array[3]={1,2,3};
+	//printArray(array, 3);   //Problem 6b testcase
 
+	//Problem 7
+	cout << "Problem 7: "<<endl;
+	//reverseArray(&x,k);
+
+	//Problem 8
+	cout << "Problem 8: "<<endl;
+	//find the min value of an array;
+
+	//Problem 9
+	cout << "Problem 9: "<<endl;
+	//find the sum of an array;
+
+	//Problem 10
+	cout << "Problem 10: "<<endl;
+	//find the sort an array;
+	int X[3]={1,3,2};
+	//cout << sortArray(*X[],3)<<endl;
 
 	return 0;
 }  // main
@@ -212,4 +241,70 @@ bool isOrderRefer(int &a, int &b, int &c){
 	return (&a<&b) && (&b<&c);
 }
 
+void fillArray(int size){
+	/*
+	 * fill in array with input size w/ random numbers
+	 */
+	int x[size];  // initialize pointer with null
 
+	for (int i = 0; i < size; i++){
+		x[i] = rand() % 100 - 50;  // random numbers -50 to 50.
+	}
+	return;
+}
+
+void printArray(int array[], int size){
+	for (int a=0; a<size;a++){
+		cout<<array[a]<<endl;
+	}
+	return;
+}
+
+void reverseArray(int array[], int size){
+	int temp;
+	for(int a = 0; a< size/2; a++){
+		array[a]= temp;
+		temp = array[size-a-1];
+		array[size-a-1]=array[a];
+		array[a]=temp;
+
+	}
+	return;
+}
+
+int minOfArray(int *array,int size){
+	int min = array[0];
+	for (int a = 1; a<size;a++){
+		if (array[a]<min){
+			min = array[a];
+		}
+	}
+
+	return min;
+
+}
+
+int sumOfArray(int *array, int size, int x){
+	int sum = 0;
+
+	if (array[size-1]<x){
+		sum = array[size-1];
+		}
+	return sum + sumOfArray( array, size-1, x);
+	}
+
+int sortArray(int *array,int size){
+	int temp;
+	int count = 0;
+	for(int a = 0; a<size; a++){
+		for(int b = 1; b<(size-1);b++){
+			if (array[a]>array[b]){
+			temp = array[a];
+			array[a] = array[b];
+			array[b] = temp;
+			count +=1;
+			}
+		}
+	}
+	return count;
+}
