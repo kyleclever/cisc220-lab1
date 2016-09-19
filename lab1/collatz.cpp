@@ -16,8 +16,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-//#include <algorithm>
-//#include <vector>
 using namespace std;
 
 // function declarations
@@ -28,7 +26,7 @@ bool isOrder(int *a, int *b, int *c);
 void swap(int &num1, int &num2);
 bool is_perfect_num (int test_num);
 bool isOrderRefer(int &a, int &b, int &c);
-void fillArray(int size);
+void fillArray(int array[], int size);
 void printArray(int array[], int size);
 void reverseArray(int array[], int size);
 int minOfArray(int *array,int size);
@@ -92,6 +90,7 @@ int main() {
 	int z3 = rand();
 	cout<<x1<<" "<<y2<<" "<<z3<<endl;
 	cout<<isOrderRefer(x1, y2, z3)<<endl;
+	// put numbers in order
 	if (isOrderRefer(x1, y2, z3)==0){
 			if(x1>y2){
 				swap(x1,y2);
@@ -108,7 +107,9 @@ int main() {
 	//Problem 6
 	cout << "Problem 6: "<<endl;
 	int k = rand() % 30 +20;   // random number 20-50
-	fillArray(k);
+	int array[k];  // initialize pointer with null
+	fillArray(&array,k);
+	cout << array <<endl;
 
 	//int array[3]={1,2,3};
 	//printArray(array, 3);   //Problem 6b testcase
@@ -204,7 +205,6 @@ int sum_divisors (int test_num, int sum, int divisor){
 	/*
 	 * check and sum all divisors for a integer
 	 */
-
 	// base case
 	if (divisor == test_num){
 		return sum;
@@ -241,14 +241,13 @@ bool isOrderRefer(int &a, int &b, int &c){
 	return (&a<&b) && (&b<&c);
 }
 
-void fillArray(int size){
+void fillArray(int *array[], int size){
 	/*
 	 * fill in array with input size w/ random numbers
 	 */
-	int x[size];  // initialize pointer with null
 
 	for (int i = 0; i < size; i++){
-		x[i] = rand() % 100 - 50;  // random numbers -50 to 50.
+		int *array[i] = rand() % 100 - 50;  // random numbers -50 to 50.
 	}
 	return;
 }
@@ -286,7 +285,6 @@ int minOfArray(int *array,int size){
 
 int sumOfArray(int *array, int size, int x){
 	int sum = 0;
-
 	if (array[size-1]<x){
 		sum = array[size-1];
 		}
@@ -307,4 +305,14 @@ int sortArray(int *array,int size){
 		}
 	}
 	return count;
+}
+
+
+int lowFilter(int list, int winSize){
+
+
+
+
+
+
 }
