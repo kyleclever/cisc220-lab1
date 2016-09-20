@@ -25,12 +25,13 @@ bool isOrder(int *a, int *b, int *c);
 void swap(int &num1, int &num2);
 bool isPerfectNum (int test_num);
 bool isOrderRefer(int &a, int &b, int &c);
-void fillArray(int arr[], int size);
-void printArray(int arr[], int size);
-void reverseArray(int array[], int size);
+void fillArray(int *arr, int size);
+void printArray(int *arr, int size);
+void reverseArray(int *array, int size);
 int minOfArray(int *array,int size);
 int sumOfArray(int *array, int size);
 int sortArray(int *array,int size);
+int lowFilter(int *list, int winSize, int length);
 
 int main() {
 /*
@@ -132,6 +133,21 @@ int main() {
 //	cout<<sortArray(arr,k)<<endl;	//find the sort an array;
 //	cout << "sorted array"<<endl;
 //	printArray(arr,k);			//print out sorted array
+
+	//Problem 11
+	cout << "Problem 11: "<<endl;
+	int arraySize = rand() % 30 +20;  // random number 20-50
+	int list[arraySize];
+	fillArray(list,arraySize);		  // random array to be trucked
+	cout << "Original Array"<<endl;
+	printArray(list,arraySize);
+
+	int windowSize = rand() % 4 +3;  // window size (randomly choose 3-7)
+	cout << "Window Size: "<<windowSize<<endl;
+	lowFilter(list, windowSize, arraySize);	 // truck with windowSize
+	cout << "Trucked Array" << endl;
+	printArray(list,arraySize);
+
 
 
 	return 0;
@@ -247,7 +263,7 @@ bool isOrderRefer(int &a, int &b, int &c){
 }
 
 //Problem 6
-void fillArray(int arr[], int size){
+void fillArray(int *arr, int size){
 	/*
 	 * fill in array with input size w/ random numbers
 	 */
@@ -259,7 +275,10 @@ void fillArray(int arr[], int size){
 }
 
 //Problem 6b
-void printArray(int arr[], int size){
+void printArray(int *arr, int size){
+	/*
+	 *print out each elements in an array
+	 */
 	for (int a=0; a<size;a++){
 		cout<<arr[a]<<endl;
 	}
@@ -267,14 +286,16 @@ void printArray(int arr[], int size){
 }
 
 //Problem 7
-void reverseArray(int array[], int size){
+void reverseArray(int *array, int size){
+	/*
+	 * reverse the order of array
+	 */
 	int temp;
 	for(int a = 0; a< size/2; a++){
-		array[a]= temp;
-		temp = array[size-a-1];
-		array[size-a-1]=array[a];
-		array[a]=temp;
-	}
+		temp = array[a];
+		array[a] = array[size-a-1];
+		array[size-a-1]=temp; //replace last element with first element
+	}//for
 	return;
 }
 
@@ -321,19 +342,27 @@ int sortArray(int *array,int size){
 	return count;
 }
 
-////Problem 11
-//int lowFilter(int list, int winSize){
-//	if (winSize % 2 == 0){
-//		winSize += 1;
-//	}
-//
-//	int g = winSize / 2;
-//	for (int i = 0; i < g; i++){
-//		list[i]=0;
-//		list[sizeof(list)-i]=0;
-//	}
-//	for(int a = g; a< (sizeof(list)-g); a++){
-//		list[a]=(list[a+g]+list[a-g])/(a+g+1);
-//	}
-//	return 0;
-//}
+//Problem 11
+int lowFilter(int *list, int winSize, int length){
+	if (winSize % 2 == 0){
+		winSize += 1;
+	}
+
+	int g = winSize / 2;
+
+	for (int i = 0; i < g; i++){
+		list[i]=0;
+	}
+	cout <<"size of"<< length<<endl;
+	for (int s = length-1; s > g; s--){
+		//cout << "s"<<s<<endl;
+		list[s]=0;
+
+	}
+
+
+	for(int a = g; a< (length-g); a++){
+		list[a]=(list[a+g]+list[a-g]+list[a])/(a+g+1);
+	}
+	return 0;
+}
