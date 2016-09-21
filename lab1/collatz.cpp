@@ -37,102 +37,102 @@ int main() {
 /*
  * Call/test each function and print out each problem
  */
-//	// Problem 1
-//	cout << "Problem 1: "<<endl;
-//	helloword();
-//
-//	// Problem 2
-//	cout << "Problem 2: "<<endl;
-//	string number;
-//	cout << "Please enter a natural positive number:" << endl;  // asking user input
-//	cin >> number;
-//	int num = atoi(number.c_str()); 	// Convert the string to an int
-//	cout<<"loop time: "<<endl;
-//	cout<<collatz(num)<<endl;
-//
-//	// Problem 2b
-//	cout << "Problem 2b: "<<endl;
-//	collatzloop();
-//
-//	//Problem 3
-//	cout << "Problem 3: "<<endl;
-//	srand(time(NULL)); 	// create seed based on current time
-//	int x = rand();
-//	int y = rand();		// random number x, y, z
-//	int z = rand();
-//	cout<<x<<" "<<y<<" "<<z<<endl;
-//	cout<<isOrder(&x, &y, &z)<<endl;
-//
-//	// sort x, y, z in order
-//	if (isOrder(&x, &y, &z)==0){
-//		if(x>y){
-//			swap(x,y);
-//		}
-//		if(x>z){
-//			swap(x,z);
-//		}
-//		if(y>z){
-//			swap(y,z);
-//		}
-//		cout<<x<<" "<<y<<" "<<z<<endl;
-//	}
-//
-//	//Problem 4
-//	cout << "Problem 4: "<<endl;
-//	for (int test_num =3; test_num<30; test_num++){
-//		cout << "Test number: " << test_num << endl;
-//		cout << isPerfectNum (test_num) << "\n"<<endl;  // test if 3-30 if perfect number
-//	}  // if return 0, false; 1, true.
-//
-//	//Problem 5
-//	cout << "Problem 5: "<<endl;
-//	int x1 = rand();
-//	int y2 = rand();		// random number x, y, z
-//	int z3 = rand();
-//	cout<<x1<<" "<<y2<<" "<<z3<<endl;
-//	cout<<isOrderRefer(x1, y2, z3)<<endl;
-//	// put numbers in order
-//	if (isOrderRefer(x1, y2, z3)==0){
-//			if(x1>y2){
-//				swap(x1,y2);
-//			}
-//			if(x1>z3){
-//				swap(x1,z3);
-//			}
-//			if(y2>z3){
-//				swap(y2,z3);
-//			}
-//			cout<<x1<<" "<<y2<<" "<<z3<<endl;
-//		}
+	// Problem 1
+	cout << "Problem 1: "<<endl;
+	helloword();
 
-//	//Problem 6
-//	cout << "Problem 6: "<<endl;
-//	int k = rand() % 30 +20;   // random number 20-50
-//	int arr[k];  // initialize pointer with null
-//	fillArray(arr,k);
-//	cout << "Original Array"<< endl;
-//	printArray(arr,k);    // test case for 6b
-//
-//	//Problem 7
-//	cout << "Problem 7: "<<endl;
-//	cout << "Reversed Array"<< endl;
-//	reverseArray(arr,k);
-//	printArray(arr,k);		// print out reversed array
-//
-//	//Problem 8
-//	cout << "Problem 8: "<<endl;
-//	cout<<minOfArray(arr, k)<<endl; //print out the min of an array
-//
-//	//Problem 9
-//	cout << "Problem 9: "<<endl;
-//	cout << sumOfArray(arr, k)<<endl; //find the sum of an array;
-//
-//	//Problem 10
-//	cout << "Problem 10: "<<endl;
-//	cout << "Count: "<<endl;
-//	cout<<sortArray(arr,k)<<endl;	//find the sort an array;
-//	cout << "sorted array"<<endl;
-//	printArray(arr,k);			//print out sorted array
+	// Problem 2
+	cout << "Problem 2: "<<endl;
+	string number;
+	cout << "Please enter a natural positive number:" << endl;  // asking user input
+	cin >> number;
+	int num = atoi(number.c_str()); 	// Convert the string to an int
+	cout<<"loop time: "<<endl;
+	cout<<collatz(num)<<endl;
+
+	// Problem 2b
+	cout << "Problem 2b: "<<endl;
+	collatzloop();
+
+	//Problem 3
+	cout << "Problem 3: "<<endl;
+	srand(time(NULL)); 	// create seed based on current time
+	int x = rand();
+	int y = rand();		// random number x, y, z
+	int z = rand();
+	cout<<x<<" "<<y<<" "<<z<<endl;
+	cout<<isOrder(&x, &y, &z)<<endl;
+
+	// sort x, y, z in order
+	if (isOrder(&x, &y, &z)==0){
+		if(x>y){
+			swap(x,y);
+		}
+		if(x>z){
+			swap(x,z);
+		}
+		if(y>z){
+			swap(y,z);
+		}
+		cout<<x<<" "<<y<<" "<<z<<endl;
+	}
+
+	//Problem 4
+	cout << "Problem 4: "<<endl;
+	for (int test_num =3; test_num<30; test_num++){
+		cout << "Test number: " << test_num << endl;
+		cout << isPerfectNum (test_num) << "\n"<<endl;  // test if 3-30 if perfect number
+	}  // if return 0, false; 1, true.
+
+	//Problem 5
+	cout << "Problem 5: "<<endl;
+	int x1 = rand();
+	int y2 = rand();		// random number x, y, z
+	int z3 = rand();
+	cout<<x1<<" "<<y2<<" "<<z3<<endl;
+	cout<<isOrderRefer(x1, y2, z3)<<endl;
+	// put numbers in order
+	if (isOrderRefer(x1, y2, z3)==0){
+			if(x1>y2){
+				swap(x1,y2);
+			}
+			if(x1>z3){
+				swap(x1,z3);
+			}
+			if(y2>z3){
+				swap(y2,z3);
+			}
+			cout<<x1<<" "<<y2<<" "<<z3<<endl;
+		}
+
+	//Problem 6
+	cout << "Problem 6: "<<endl;
+	int k = rand() % 30 +20;   // random number 20-50
+	int arr[k];  // initialize pointer with null
+	fillArray(arr,k);
+	cout << "Original Array"<< endl;
+	printArray(arr,k);    // test case for 6b
+
+	//Problem 7
+	cout << "Problem 7: "<<endl;
+	cout << "Reversed Array"<< endl;
+	reverseArray(arr,k);
+	printArray(arr,k);		// print out reversed array
+
+	//Problem 8
+	cout << "Problem 8: "<<endl;
+	cout<<minOfArray(arr, k)<<endl; //print out the min of an array
+
+	//Problem 9
+	cout << "Problem 9: "<<endl;
+	cout << sumOfArray(arr, k)<<endl; //find the sum of an array;
+
+	//Problem 10
+	cout << "Problem 10: "<<endl;
+	cout << "Count: "<<endl;
+	cout<<sortArray(arr,k)<<endl;	//find the sort an array;
+	cout << "sorted array"<<endl;
+	printArray(arr,k);			//print out sorted array
 
 	//Problem 11
 	cout << "Problem 11: "<<endl;
@@ -147,8 +147,15 @@ int main() {
 	lowFilter(list, windowSize, arraySize);	 // truck with windowSize
 	cout << "Trucked Array" << endl;
 	printArray(list,arraySize);
+/*
+	//test case example from assignment
+	int test[]={3,2,7,0,4,2,1,6,4,2,9,5,4,2,3};
+	lowFilter(test, 5, 15);
+	printArray(test,15);
+*/
 
-
+	//Problem 12
+	cout << "Problem 12: "<<endl;
 
 	return 0;
 }  // main
@@ -344,25 +351,56 @@ int sortArray(int *array,int size){
 
 //Problem 11
 int lowFilter(int *list, int winSize, int length){
+	/*
+	 * filter array to be more smooth
+
+	    winSize 3, first/last ONE 0; winSize 4, fist/last TWO 0; winSize 5, fist/last TWO 0;
+		winSize 6,first/last THREE 0; winSize 7, fist/last THREE 0;
+	 */
+
+	int copyList[length]={0};
+	//make a copy of original array, so the truncated number wouldn't affect others
+	for (int c=0 ; c<length; c++){
+		copyList[c] =list [c];
+	}
+
+	 //Minimum surrounding numbers
+	int s = 0 ;
+	if (winSize % 2 == 1){
+		s = (winSize - 1)/2;
+	}else{
+		s = winSize / 2;
+	}
+
+	//replacement for even window size
 	if (winSize % 2 == 0){
-		winSize += 1;
-	}
+	for (int a = s; a < (length-s-1); a++){
+		// Initial sum for each truck
+		int sum = 0;
+		for (int b = 0 ; b < s; b++){	//base on winSizes
+			sum = sum + copyList[a+b]+copyList[a-b]; // split truck in half and add them up
+		}//for
+		sum = sum - copyList[a] + copyList[a-s];   // subtract the duplicate one and add the first index of that truck.
+		list[a] = sum/winSize;			   // compute avg. and replace
+	}//for
+	}//if
 
-	int g = winSize / 2;
+	//replacement for odd window size
+	else{
+	for (int a = s; a < (length-s-1); a++){
+		int sum = 0;
+		for (int b = 0 ; b <= s; b++){
+			sum = sum + copyList[a+b]+copyList[a-b]; // split truck in half and add them up
+		}//for
+		sum = sum - copyList[a];
+		list[a] = sum/winSize;			   // compute avg. and replace
+	}//for
+	}//else
 
-	for (int i = 0; i < g; i++){
+	// Note: replace 0 for last step.
+	for (int i = 0; i < s; i++){	// replace first and last s elements with 0
 		list[i]=0;
-	}
-	cout <<"size of"<< length<<endl;
-	for (int s = length-1; s > g; s--){
-		//cout << "s"<<s<<endl;
-		list[s]=0;
-
-	}
-
-
-	for(int a = g; a< (length-g); a++){
-		list[a]=(list[a+g]+list[a-g]+list[a])/(a+g+1);
-	}
+		list[length-i-1]=0;
+	}//for
 	return 0;
 }
