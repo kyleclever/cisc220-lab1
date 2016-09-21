@@ -458,4 +458,5 @@ void createMatrix(int **multiArray[], int &a, int &b, int &c){
 	    delete [] multiArray[i];
 	  }
     delete [] multiArray;
+    return;
 }
