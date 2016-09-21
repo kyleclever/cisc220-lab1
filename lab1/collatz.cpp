@@ -32,133 +32,184 @@ int minOfArray(int *array,int size);
 int sumOfArray(int *array, int size);
 int sortArray(int *array,int size);
 int lowFilter(int *list, int winSize, int length);
+void createMatrix(int **multiArray[], int &a, int &b, int &c);
+void printMatrix(int **multiArray[],int a, int b, int c);
 
 int main() {
 /*
  * Call/test each function and print out each problem
  */
-	// Problem 1
-	cout << "Problem 1: "<<endl;
-	helloword();
-
-	// Problem 2
-	cout << "Problem 2: "<<endl;
-	string number;
-	cout << "Please enter a natural positive number:" << endl;  // asking user input
-	cin >> number;
-	int num = atoi(number.c_str()); 	// Convert the string to an int
-	cout<<"loop time: "<<endl;
-	cout<<collatz(num)<<endl;
-
-	// Problem 2b
-	cout << "Problem 2b: "<<endl;
-	collatzloop();
-
-	//Problem 3
-	cout << "Problem 3: "<<endl;
-	srand(time(NULL)); 	// create seed based on current time
-	int x = rand();
-	int y = rand();		// random number x, y, z
-	int z = rand();
-	cout<<x<<" "<<y<<" "<<z<<endl;
-	cout<<isOrder(&x, &y, &z)<<endl;
-
-	// sort x, y, z in order
-	if (isOrder(&x, &y, &z)==0){
-		if(x>y){
-			swap(x,y);
-		}
-		if(x>z){
-			swap(x,z);
-		}
-		if(y>z){
-			swap(y,z);
-		}
-		cout<<x<<" "<<y<<" "<<z<<endl;
-	}
-
-	//Problem 4
-	cout << "Problem 4: "<<endl;
-	for (int test_num =3; test_num<30; test_num++){
-		cout << "Test number: " << test_num << endl;
-		cout << isPerfectNum (test_num) << "\n"<<endl;  // test if 3-30 if perfect number
-	}  // if return 0, false; 1, true.
-
-	//Problem 5
-	cout << "Problem 5: "<<endl;
-	int x1 = rand();
-	int y2 = rand();		// random number x, y, z
-	int z3 = rand();
-	cout<<x1<<" "<<y2<<" "<<z3<<endl;
-	cout<<isOrderRefer(x1, y2, z3)<<endl;
-	// put numbers in order
-	if (isOrderRefer(x1, y2, z3)==0){
-			if(x1>y2){
-				swap(x1,y2);
-			}
-			if(x1>z3){
-				swap(x1,z3);
-			}
-			if(y2>z3){
-				swap(y2,z3);
-			}
-			cout<<x1<<" "<<y2<<" "<<z3<<endl;
-		}
-
-	//Problem 6
-	cout << "Problem 6: "<<endl;
-	int k = rand() % 30 +20;   // random number 20-50
-	int arr[k];  // initialize pointer with null
-	fillArray(arr,k);
-	cout << "Original Array"<< endl;
-	printArray(arr,k);    // test case for 6b
-
-	//Problem 7
-	cout << "Problem 7: "<<endl;
-	cout << "Reversed Array"<< endl;
-	reverseArray(arr,k);
-	printArray(arr,k);		// print out reversed array
-
-	//Problem 8
-	cout << "Problem 8: "<<endl;
-	cout<<minOfArray(arr, k)<<endl; //print out the min of an array
-
-	//Problem 9
-	cout << "Problem 9: "<<endl;
-	cout << sumOfArray(arr, k)<<endl; //find the sum of an array;
-
-	//Problem 10
-	cout << "Problem 10: "<<endl;
-	cout << "Count: "<<endl;
-	cout<<sortArray(arr,k)<<endl;	//find the sort an array;
-	cout << "sorted array"<<endl;
-	printArray(arr,k);			//print out sorted array
-
-	//Problem 11
-	cout << "Problem 11: "<<endl;
-	int arraySize = rand() % 30 +20;  // random number 20-50
-	int list[arraySize];
-	fillArray(list,arraySize);		  // random array to be trucked
-	cout << "Original Array"<<endl;
-	printArray(list,arraySize);
-
-	int windowSize = rand() % 4 +3;  // window size (randomly choose 3-7)
-	cout << "Window Size: "<<windowSize<<endl;
-	lowFilter(list, windowSize, arraySize);	 // truck with windowSize
-	cout << "Trucked Array" << endl;
-	printArray(list,arraySize);
-/*
-	//test case example from assignment
-	int test[]={3,2,7,0,4,2,1,6,4,2,9,5,4,2,3};
-	lowFilter(test, 5, 15);
-	printArray(test,15);
-*/
+//	// Problem 1
+//	cout << "Problem 1: "<<endl;
+//	helloword();
+//
+//	// Problem 2
+//	cout << "Problem 2: "<<endl;
+//	string number;
+//	cout << "Please enter a natural positive number:" << endl;  // asking user input
+//	cin >> number;
+//	int num = atoi(number.c_str()); 	// Convert the string to an int
+//	cout<<"loop time: "<<endl;
+//	cout<<collatz(num)<<endl;
+//
+//	// Problem 2b
+//	cout << "Problem 2b: "<<endl;
+//	collatzloop();
+//
+//	//Problem 3
+//	cout << "Problem 3: "<<endl;
+//	srand(time(NULL)); 	// create seed based on current time
+//	int x = rand();
+//	int y = rand();		// random number x, y, z
+//	int z = rand();
+//	cout<<x<<" "<<y<<" "<<z<<endl;
+//	cout<<isOrder(&x, &y, &z)<<endl;
+//
+//	// sort x, y, z in order
+//	if (isOrder(&x, &y, &z)==0){
+//		if(x>y){
+//			swap(x,y);
+//		}
+//		if(x>z){
+//			swap(x,z);
+//		}
+//		if(y>z){
+//			swap(y,z);
+//		}
+//		cout<<x<<" "<<y<<" "<<z<<endl;
+//	}
+//
+//	//Problem 4
+//	cout << "Problem 4: "<<endl;
+//	for (int test_num =3; test_num<30; test_num++){
+//		cout << "Test number: " << test_num << endl;
+//		cout << isPerfectNum (test_num) << "\n"<<endl;  // test if 3-30 if perfect number
+//	}  // if return 0, false; 1, true.
+//
+//	//Problem 5
+//	cout << "Problem 5: "<<endl;
+//	int x1 = rand();
+//	int y2 = rand();		// random number x, y, z
+//	int z3 = rand();
+//	cout<<x1<<" "<<y2<<" "<<z3<<endl;
+//	cout<<isOrderRefer(x1, y2, z3)<<endl;
+//	// put numbers in order
+//	if (isOrderRefer(x1, y2, z3)==0){
+//			if(x1>y2){
+//				swap(x1,y2);
+//			}
+//			if(x1>z3){
+//				swap(x1,z3);
+//			}
+//			if(y2>z3){
+//				swap(y2,z3);
+//			}
+//			cout<<x1<<" "<<y2<<" "<<z3<<endl;
+//		}
+//
+//	//Problem 6
+//	cout << "Problem 6: "<<endl;
+//	int k = rand() % 30 +20;   // random number 20-50
+//	int arr[k];  // initialize pointer with null
+//	fillArray(arr,k);
+//	cout << "Original Array"<< endl;
+//	printArray(arr,k);    // test case for 6b
+//
+//	//Problem 7
+//	cout << "Problem 7: "<<endl;
+//	cout << "Reversed Array"<< endl;
+//	reverseArray(arr,k);
+//	printArray(arr,k);		// print out reversed array
+//
+//	//Problem 8
+//	cout << "Problem 8: "<<endl;
+//	cout<<minOfArray(arr, k)<<endl; //print out the min of an array
+//
+//	//Problem 9
+//	cout << "Problem 9: "<<endl;
+//	cout << sumOfArray(arr, k)<<endl; //find the sum of an array;
+//
+//	//Problem 10
+//	cout << "Problem 10: "<<endl;
+//	cout << "Count: "<<endl;
+//	cout<<sortArray(arr,k)<<endl;	//find the sort an array;
+//	cout << "sorted array"<<endl;
+//	printArray(arr,k);			//print out sorted array
+//
+//	//Problem 11
+//	cout << "Problem 11: "<<endl;
+//	int arraySize = rand() % 30 +20;  // random number 20-50
+//	int list[arraySize];
+//	fillArray(list,arraySize);		  // random array to be trucked
+//	cout << "Original Array"<<endl;
+//	printArray(list,arraySize);
+//
+//	int windowSize = rand() % 4 +3;  // window size (randomly choose 3-7)
+//	cout << "Window Size: "<<windowSize<<endl;
+//	lowFilter(list, windowSize, arraySize);	 // truck with windowSize
+//	cout << "Trucked Array" << endl;
+//	printArray(list,arraySize);
+///*
+//	//test case example from assignment
+//	int test[]={3,2,7,0,4,2,1,6,4,2,9,5,4,2,3};
+//	lowFilter(test, 5, 15);
+//	printArray(test,15);
+//*/
 
 	//Problem 12
 	cout << "Problem 12: "<<endl;
+	int ***multiArray = NULL;
+	int int1 = -1;
+	int int2 = -1;
+	int int3 = -1;
+	createMatrix(multiArray, int1, int2, int3);
+	printMatrix(multiArray, 3, 5, 4);
 
 	return 0;
 }  // main
+
+//Problem 12
+void createMatrix(int **multiArray[], int &a, int &b, int &c){
+	/*
+	 * Create a 3 dimensinal matrix
+	 */
+
+	// random from 2-6
+	a = rand()% 4 + 2;
+	b = rand()% 4 + 2;
+	c = rand()% 4 + 2;
+	cout << a << b << c<<endl;
+
+	// Allocate memory
+	multiArray = new int **[a];
+	for (int i = 0; i < a ; i++){
+		multiArray[i] = new int*[b];
+		for (int j = 0; j < b; j++){
+			multiArray[i][j] = new int[c];
+		}
+	}
+
+	//fill 3-dimensional array
+	for (int i = 0; i < a; i++) {
+	for (int j = 0; j < b; j++) {
+	for (int k = 0; k < c; k++) {
+		multiArray[i][j][k]= i+j+k;
+			}//for
+		} //for
+	} //for
+}
+
+void printMatrix(int **multiArray[],int a, int b, int c){
+
+	for (int i = 0; i < a; i++) {
+	for (int j = 0; j < b; j++) {
+	for (int k = 0; k < c; k++) {
+		cout << multiArray[i][j][k]<<endl;
+			}//for
+		} //for
+	} //for
+
+}
 
 //Problem 1
 int helloword() {
@@ -404,3 +455,4 @@ int lowFilter(int *list, int winSize, int length){
 	}//for
 	return 0;
 }
+
